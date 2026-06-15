@@ -192,8 +192,8 @@ footer{
 footer ul{
     max-width: 1420px;
     width: 92%;
-    max-width: 0 auto;
-    padding: 50px;
+    margin: 0 auto;
+    padding: 50px 0;
 }
 footer ul li{
     font-size: .9rem;
@@ -514,8 +514,27 @@ footer ul li.copy{
 
 }
 @media (max-width:768px){
-    *{font-size: 14px;}
-    
+    /* 공통 */
+    *{font-size: 13px;}
+    header > h1{font-size: 1.4rem;}
+    header ul.sub_menu li a{font-size: .9rem;}
+
+    nav{height:35px;}
+    nav .dep1{
+        font-size: 1rem;
+        line-height: 35px;
+        padding: 0 30px;
+        margin: 0 10px;
+    }
+    footer ul{padding: 30px 0;}
+
+    /* 메인 */
+    #main-page .menu_all{padding: 40px 0 70px;}
+    #main-page .menu_all .m-tit{margin-bottom: 40px;}
+    #main-page .menu_all .m-tit h2{font-size: 1.5rem;}
+    #main-page .menu_all .m-tit p{font-size: 1rem;}
+    /* 서브 */
+    #sub-page .sub_list{padding: 70px 0;}
 }
 @media (max-width:560px){
     #main-page .menu_all ul li.food_card{ width: 100%;}
