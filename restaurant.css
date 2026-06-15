@@ -1,0 +1,452 @@
+/* 초기화 */
+*{box-sizing: border-box; margin: 0; padding: 0; font-size: 16px;}
+html{scroll-behavior: smooth;}
+ul, dl,dt,dd{margin:0;padding:0;list-style:none}
+p, b, li, a, span, h1, h2, h3, h4, h3, h6, strong, dl, dt, dd, th, td, small{-ms-word-break: keep-all; word-break: keep-all;}
+a{text-decoration: none;}
+
+
+/* 전체 설정 */
+body{
+    position: relative;
+    max-width: 1920px; 
+    overflow-x: hidden;
+    margin: 0 auto;
+    color: #333;
+    font-family: 'NationalPension', sans-serif;
+}
+.img-box{
+    position: relative;
+    display: block;
+    overflow: hidden;
+}
+.img-box img{
+    width: 100%;
+    height: 100%;
+    transition: var(--basic-transition);
+}
+:root{
+    --color-main1:#bb6db7;
+    --color-main2: #8269a8;
+    --color-main3: #5d3499;
+    --color-sub1:#ffe4e4;
+    --color-sub2:#faefff;
+    --color-white1:#fffefe;
+    --coor-whiite2:#fbfbff;
+    --font:"Abril Fatface";
+    --basic-transition: all .4s ease;
+}
+@font-face {
+    font-family: 'NationalPension';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2310@1.0/NPSfontRegular.woff2') format('woff2');
+    font-weight: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'NationalPension';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2310@1.0/NPSfontBold.woff2') format('woff2');
+    font-weight: 700;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'NationalPension';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2310@1.0/NPSfontExtraBold.woff2') format('woff2');
+    font-weight: 800;
+    font-display: swap;
+}
+
+/* ---------- 공통 css---------- */
+/* 나타나는 모션 */
+.mot_fade_up {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fade_up 0.5s ease forwards;
+}
+@keyframes fade_up {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* btn-top */
+.btn-top{
+    position: fixed;
+    width: 46px;
+    height: 46px;
+    border: 2px solid #8269a8;
+    background-color: #fff;
+    border-radius: 50%;
+    right: 10px;
+    bottom: 10px;
+    overflow: hidden;
+    z-index: 999;
+}
+.btn-top i{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transition: var(--basic-transition);
+}
+.btn-top i:last-child{transform: translate(-50%, 150%);}
+
+.btn-top:hover{background-color: var(--color-main2);}
+.btn-top:hover i{color: #fff;}
+.btn-top:hover i:first-child{transform: translate(-50%, -250%);}
+.btn-top:hover i:last-child{transform: translate(-50%, -50%);}
+
+
+/* header영역 */
+header{
+    position: relative;
+    width: 100%;
+    min-height: 80px;
+    padding: 30px 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    color: var(--color-white1);
+    background: linear-gradient(
+        90deg,
+        var(--color-main1),
+        var(--color-main2),
+        var(--color-main3)
+    );
+    background-size: 300% 100%;
+    animation: back_grad_move 5s linear infinite;
+}
+@keyframes back_grad_move{
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+}
+header > h1{
+    font-size: 1.56rem;
+    letter-spacing: 0.01em;
+    margin-bottom: 15px;
+}
+header ul.sub_menu{
+    position: relative;
+    display: flex;
+    gap: 5px;
+}
+header ul.sub_menu li a{
+    font-size: 1rem;
+    color: var(--color-sub2);
+}
+header ul.sub_menu li a:hover{text-decoration: underline;}
+header ul.sub_menu li i{opacity: .7;}
+
+/* nav 영역 */
+nav{
+    position: relative;
+    width: 100%;
+    height: 40px;
+    background-color: var(--color-sub2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+nav .nav_dep{position: relative;}
+nav .dep1{
+    position: relative;
+    display: block;
+    height: 100%;
+    font-size: 1.15rem;
+    font-weight: 600;
+    line-height: 40px;
+    color: var(--color-main2);
+    transition: var(--basic-transition);
+    padding: 0 30px;
+    margin: 0 20px;
+}
+nav .dep1::before{
+    position: absolute;
+    content: '';
+    display: block;
+    width: 100%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--color-main2);
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: var(--basic-transition);
+}
+nav .dep1:hover::before,
+nav .dep1.active::before{
+    transform: scaleX(1);
+}
+
+/* footer 영역 */
+footer{
+    position: relative;
+    width: 100%;
+    background-color: #e5e5e5;
+}
+footer ul{
+    max-width: 1420px;
+    width: 92%;
+    max-width: 0 auto;
+    padding: 50px;
+}
+footer ul li{
+    font-size: .9rem;
+    color: #999;
+    line-height: 1.15;
+}
+footer ul li + li{margin-top:2px;}
+footer ul li.copy{
+    font-weight: 700;
+    color: var(--color-main2);
+    margin-top: 15px;
+}
+
+
+/* ---------- 메인 css ---------- */
+#main-page{
+    position: relative;
+    max-width: 1420px;
+    width: 92%;
+    margin: 0 auto;
+}
+#main-page .menu_all{
+    position: relative;
+    width: 100%;
+    padding: 80px 0 120px;
+}
+#main-page .menu_all .m-tit{
+    position: relative;
+    text-align: center;
+    margin-bottom: 90px;
+}
+#main-page .menu_all .m-tit h2{
+    font-size: 2rem;
+    color: #111;
+}
+#main-page .menu_all .m-tit p{
+    font-size: 1.1rem;
+    margin-top: 15px;
+}
+
+
+#main-page .menu_all ul{
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    row-gap: 50px;
+}
+#main-page .menu_all ul li.food_card{
+    position: relative;
+    width: calc((100% - 100px) / 3);
+    overflow: hidden;
+}
+#main-page .menu_all ul li.food_card h3.tit{
+    background-color: var(--color-main2);
+    border-radius: 10px 10px 0 0;
+    min-height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#main-page .menu_all ul li.food_card h3.tit span{
+    position: relative;
+    padding: 0 20px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #fff;
+}
+#main-page .menu_all ul li.food_card h3.tit span::before,
+#main-page .menu_all ul li.food_card h3.tit span::after{
+    position: absolute;
+    content: '';
+    display: block;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: #f2f2f2;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+#main-page .menu_all ul li.food_card h3.tit span::after{
+    left: inherit;
+    right: 0;
+}
+#main-page .menu_all ul li.food_card .inner{
+    position: relative;
+    width: 100%;
+    padding: 15px;
+    border: 1px solid var(--color-main2);
+    border-top: none;
+    border-radius: 0 0 10px 10px;
+}
+#main-page .menu_all ul li.food_card .inner .img-box{
+    width: 100%;
+    border-radius: 6px;
+}
+#main-page .menu_all ul li.food_card .inner dl{
+    position: relative;
+    margin-top: 15px;
+    margin-left: 3px;
+}
+#main-page .menu_all ul li.food_card .inner dl dd{
+    position: relative;
+    font-size: 1.1rem;
+    color: #555;
+    padding-left: 22px;
+}
+#main-page .menu_all ul li.food_card .inner dl dd i{
+    position: absolute;
+    left: 0;
+    top: -2px;
+    font-size: 1.15rem;
+}
+#main-page .menu_all ul li.food_card .inner dl dd + dd{margin-top: 8px;}
+#main-page .menu_all ul li.food_card .inner > a{
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 15px 20px;
+    border-radius: 6px;
+    background-color: #eeeeee;
+    margin-top: 15px;
+    text-align: center;
+    overflow: hidden;
+}
+#main-page .menu_all ul li.food_card .inner > a:before{
+    position: absolute;
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-main2);
+    left: 0;
+    top: -100%;
+    transition: var(--basic-transition);
+}
+#main-page .menu_all ul li.food_card .inner > a span{
+    position: relative;
+    color: var(--color-main2);
+    font-weight: 600;
+    z-index: 5;
+    transition: var(--basic-transition);
+}
+#main-page .menu_all ul li.food_card .inner > a:hover:before{top:0;}
+#main-page .menu_all ul li.food_card .inner > a:hover span{color: #fff;}
+/* ---------- 서브 css ---------- */
+#sub-page{
+    position: relative;
+    max-width: 1420px;
+    width: 92%;
+    margin: 0 auto;
+}
+#sub-page .sub_list{
+    position: relative;
+    width: 100%;
+    padding: 120px 0;
+}
+
+#sub-page ul.menu_list{}
+#sub-page ul.menu_list > li{
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 30px 50px 30px 30px;
+}
+#sub-page ul.menu_list > li + li{margin-top: 30px;}
+#sub-page ul.menu_list > li .num{
+    font-size: .9rem;
+    color: #999;
+    width: 30px;
+}
+#sub-page ul.menu_list > li .img-box{
+    width: 370px;
+    border-radius: 6px;
+    overflow: hidden;
+}
+#sub-page ul.menu_list > li .txt-box{
+    position: relative;
+    flex: 1;
+}
+#sub-page ul.menu_list > li .txt-box h3{
+    position: relative;
+    display: block;
+    font-size: 1.35rem;
+    font-weight: 600;
+    margin-bottom: 25px;
+    padding-bottom: 20px;
+}
+#sub-page ul.menu_list > li .txt-box h3::before{
+    position: absolute;
+    content: '';
+    display: block;
+    width: 100%;
+    height: 1px;
+    background-color: #ccc;
+    left: 0;
+    bottom: 0;
+}
+#sub-page ul.menu_list > li .txt-box ul{position: relative;}
+#sub-page ul.menu_list > li .txt-box ul li:not(.more_btn){
+    position: relative;
+    font-size: 1.1rem;
+    padding-left: 34px;
+    line-height: 1.3;
+}
+#sub-page ul.menu_list > li .txt-box ul li + li:not(.more_btn){margin-top: 20px;}
+#sub-page ul.menu_list > li .txt-box ul li:not(.more_btn) i{
+    position: absolute;
+    left: 0;
+    top: -2px;
+    width: 28px;
+    height: 28px;
+    background-color: var(--color-sub2);
+    color: var(--color-main2);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#sub-page ul.menu_list > li .txt-box ul li.more_btn{
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: var(--color-sub2);
+    right: 0;
+    top: 10%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#sub-page ul.menu_list > li .txt-box ul li.more_btn a{
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    right: 0;
+    z-index: 1;
+}
+#sub-page ul.menu_list > li .txt-box ul li.more_btn i{
+    font-size: 2rem;
+    color: var(--color-main2);
+    transition-duration: 0.5s; 
+    transition-timing-function: ease-in-out;
+}
+#sub-page ul.menu_list > li .txt-box ul li.more_btn:hover i{transform: rotateY(360deg);}
+
+
+                      
